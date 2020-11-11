@@ -20,6 +20,7 @@ def client():
 def test_first_three(client):
     response = client.get('/members')
     members = json.loads(response.data)
+    print(len(members))
     assert len(members) == 3
 
 @pytest.mark.it("Implement method POST /member to add a new member")
@@ -77,8 +78,9 @@ def test_get_single_member_has_keys(client):
     data = json.loads(response.data)
 
     assert data is not None
-    assert "first_name" in data
     assert "id" in data
+    assert "first_name" in data
+    assert "last_name" in data
     assert "age" in data
     assert "lucky_numbers" in data
 

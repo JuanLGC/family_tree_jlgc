@@ -61,7 +61,7 @@ def cretate_member():
 
     except Exception as err:
         print('IOS ERROR', err)
-        return jsonify('Bad request'), 404
+        return jsonify('Bad request'), 405
 
     except:
         print('Except')
